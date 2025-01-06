@@ -1,26 +1,41 @@
-import { FlatCompat } from "@eslint/eslintrc";
+import { FlatCompat } from '@eslint/eslintrc';
 
 const compat = new FlatCompat();
 
 export default [
     // Используем рекомендованные настройки Vue.js
-    ...compat.extends("plugin:vue/vue3-recommended"),
+    ...compat.extends('plugin:vue/vue3-recommended'),
 
     // Используем рекомендованные настройки Nuxt
-    ...compat.extends("plugin:nuxt/recommended"),
+    ...compat.extends('plugin:nuxt/recommended'),
+
+    ...compat.extends('plugin:@typescript-eslint/recommended'),
+
+    // Настройки Prettier
+    {
+        plugins: {
+            prettier: require('eslint-plugin-prettier'),
+        },
+        rules: {
+            'prettier/prettier': 'error', // Вывод ошибок Prettier как ошибок ESLint
+        },
+    },
+
+    // Отключаем конфликты с Prettier
+    ...compat.extends('eslint-config-prettier'),
 
     {
         ignores: [
-            "node_modules",
-            ".nuxt",
-            ".output",
-            "dist", // Игнорировать папку dist (собранные файлы)
+            'node_modules',
+            '.nuxt',
+            '.output',
+            'dist', // Игнорировать папку dist (собранные файлы)
         ],
     },
 
     // Кастомные правила (добавь, если потребуется)
     {
-        files: ["**/*.vue", "**/*.js", "**/*.ts"],
+        files: ['**/*.vue', '**/*.js', '**/*.ts'],
         rules: {
             //
         },
