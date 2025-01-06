@@ -1,4 +1,5 @@
 import { FlatCompat } from '@eslint/eslintrc';
+import prettierPlugin from 'eslint-plugin-prettier';
 
 const compat = new FlatCompat();
 
@@ -14,7 +15,7 @@ export default [
     // Настройки Prettier
     {
         plugins: {
-            prettier: require('eslint-plugin-prettier'),
+            prettier: prettierPlugin,
         },
         rules: {
             'prettier/prettier': 'error', // Вывод ошибок Prettier как ошибок ESLint
