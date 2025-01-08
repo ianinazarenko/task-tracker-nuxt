@@ -37,17 +37,16 @@ export default [
     // Кастомные правила (добавь, если потребуется)
     {
         files: ['**/*.vue', '**/*.js', '**/*.ts'],
+        // Vue parser options
+        languageOptions: {
+            parser: 'vue-eslint-parser',
+            parserOptions: {
+                parser: '@typescript-eslint/parser',
+                sourceType: 'module',
+            },
+        },
         rules: {
             //
-        },
-    },
-
-    // Vue parser options
-    {
-        parser: 'vue-eslint-parser',
-        parserOptions: {
-            parser: '@typescript-eslint/parser',
-            sourceType: 'module',
         },
     },
 ];
