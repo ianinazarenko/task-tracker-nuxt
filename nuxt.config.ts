@@ -13,10 +13,14 @@ export default defineNuxtConfig({
     ],
 
     modules: [
-        ['@nuxtjs/google-fonts', {
-            families: {
-                Roboto: true,
+        '@pinia/nuxt',
+        [
+            '@nuxtjs/google-fonts',
+            {
+                families: {
+                    Roboto: true,
+                },
             },
-        }],
+        ],
     ],
 });
